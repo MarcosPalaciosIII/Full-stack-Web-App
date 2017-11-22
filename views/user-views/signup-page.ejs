@@ -1,0 +1,80 @@
+<h2> Sign Up </h2>
+
+<% if (currentUser) { %>
+
+    <a href="/settings"> Edit Profile </a>
+    <a href="/logout"> Log Out </a>
+    <br />
+
+    <b> <%= currentUser.userName %> </b>
+  <% } else { %>
+
+    <a href="/"> Home </a>
+
+  <% } %>
+
+<% if (typeof errorMessage !== "undefined") { %>
+  <p class="error-message"> <%= errorMessage %> </p>
+<% } %>
+
+
+<form id="form" method="post" action="/process-signup">
+
+  <label for="full-name-input"></label>
+  <input id="full-name-input" type="text" placeholder="Full Name" name="signupFullName" />
+  <br />
+
+
+  <label for="email-input"></label>
+  <input id="email-input" type="email" placeholder=" Email Address" name="signupEmail" />
+  <br />
+
+
+  <label for="username-input"></label>
+  <input id="username-input" type="text" placeholder="Username" name="signupUsername" />
+  <br />
+
+  <label for="user-avatar-input"></label>
+  <input id="user-avatar-input" type="text" placeholder="Avatar URL" name="signupAvatar" />
+  <br />
+
+  <label for="fav-languages-input"></label>
+
+  <div id="fav-languages-input">
+    <p><strong>Which Languages are your favorite (Select 3)</strong></p>
+
+        <input id="CssCheckbox" class="single-checkbox"type="checkbox" name="signupFavLanguages" value="CSS" />CSS<br>
+
+        <input id="JavascriptCheckbox" class="single-checkbox" type="checkbox" name="signupFavLanguages" value="Javascript"  />Javascript<br>
+
+        <input id="RubyCheckbox" class="single-checkbox" type="checkbox" name="signupFavLanguages" value="Ruby" />Ruby<br>
+
+        <input id="ExpressCheckbox" class="single-checkbox" type="checkbox" name="signupFavLanguages" />Express<br>
+
+        <input id="NodeCheckbox" class="single-checkbox" type="checkbox" name="signupFavLanguages" />Node<br>
+
+        <input id="MongoCheckbox" class="single-checkbox" type="checkbox" name="signupFavLanguages" />Mongo<br>
+
+        <input id="AngularCheckbox" class="single-checkbox" type="checkbox" name="signupFavLanguages" />Angular<br>
+
+  </div>
+  <br />
+
+
+  <label for="password-input"></label>
+  <input id="password-input" type="password" placeholder="Password" name="signupPassword" />
+  <br />
+  <br  />
+
+  <button> Submit </button>
+  <br />
+  <br />
+
+  <a href="/facebook/login"> Sign Up With Facebook </a>
+  <a href="/google/login"> Sign Up With Google </a>
+
+  <p>
+    Already have an account?
+    <a href="/login"> Log In </a>
+  </p>
+</form>

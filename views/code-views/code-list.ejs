@@ -1,0 +1,15 @@
+<h2> Code List </h2>
+
+<a href="/code/new"> Add a code </a>
+
+<ul>
+  <% listOfCodes.forEach((oneCode) => { %>
+    <li>
+      <h3> Code Name: <%= oneCode.codeName %> </h3>
+      <h4> Author: <%= oneCode.codeAuthor %> </h4>
+      <h4> Language: <%= oneCode.codeLanguage %> </h5>
+      <p> description: <%= oneCode.codeDescription %> </p>
+      <a href="<%= oneCode.codeLink %>"> View Code </a>
+    </li>
+  <% }) %>
+</ul>

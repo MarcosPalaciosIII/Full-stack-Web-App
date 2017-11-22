@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="utf-8">
+
     <title><%= title %></title>
+
     <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
   </head>
   <body>
+    <header>
+      <h1> <%= title %> </h1>
+
+      <% if (currentUser) { %>
+        <h2> Hello, <%= currentUser.fullName %>! </h2>
+
+        <a href="/code/new"> Add a code </a>
+        <a href="/my-codes"> Code List </a>
+        <a href="/profile/<%= currentUser._id %>"> My Profile </a>
+
+
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn"> Discussions </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="/Angular"> Angular </a>
+            <a href="/CSS"> CSS </a>
+            <a href="/Express"> Express </a>
+            <a href="/Javascript"> Javascript </a>
+            <a href="/Mongo"> Mongo </a>
+            <a href="/Node"> Node </a>
+            <a href="/Ruby"> Ruby </a>
+          </div>
+        </div>
+      <% } %>
+
+      <a href="/"> Home </a>
+    </header>
+
     <%- body %>
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script id="dsq-count-scr" src="//the-language-shop.disqus.com/count.js" async></script>
+
+    <script type="text/javascript" src="/javascripts/script.js"></script>
+
   </body>
 </html>

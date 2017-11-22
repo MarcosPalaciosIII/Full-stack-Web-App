@@ -1,0 +1,61 @@
+<h2> <%= currentUser.userName %> Profile Edit </h2>
+
+
+<p>
+  Email:  <b> <%= currentUser.email %> <br />
+    <small> (For "security reasons" we don't allow changing emails.)</small>
+</p>
+
+<h4> Name: <%= currentUser.fullName %> </h3>
+
+
+  <form method="post" action="/user/<%= userDetails._id %>">
+    <h3> Current Avatar </h3>
+    <img id="profile-image" src="<%= currentUser.userAvatar %>" />
+    <br />
+
+    <label for="user-avatar-input"> Avatar URL </label>
+    <input  id="user-avatar-input" type="text"
+    placeholder="e.g. http://example.com/nintendo.gif" name="userAvatarEdit"
+    value="<%= userDetails.userAvatar %>" />
+    <br />
+
+
+    <label for="user-bio-input"> Bio </label>
+    <textarea  id="user-bio-input" type="text"
+        placeholder="I love coding" name="userBioEdit"
+        value="<%= userDetails.userBio %>"><%= userDetails.userBio %></textarea>
+    <br />
+
+    <h5> Current Favorite Languages </h5>
+    <ul>
+      <% userDetails.userFavLanguages.forEach((oneLanguage) => { %>
+        <li>
+        <%= oneLanguage %>
+        </li>
+        <% }) %>
+      </ul>
+
+      <h3><em> -- you MUST select your 3 favorite languages or field will be left blank -- </em></h3>
+
+    <div id="fav-languages-input">
+      <p><strong>Which Languages are your favorite (Select 3)</strong></p>
+
+          <input id="CssCheckbox" class="single-checkbox"type="checkbox" name="editFavLanguages" value="CSS" />CSS<br>
+
+          <input id="JavascriptCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Javascript"  />Javascript<br>
+
+          <input id="RubyCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Ruby" />Ruby<br>
+
+          <input id="ExpressCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" />Express<br>
+
+          <input id="NodeCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" />Node<br>
+
+          <input id="MongoCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" />Mongo<br>
+
+          <input id="AngularCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" />Angular<br>
+
+    </div>
+
+    <button> Save Changes </button>
+</form>

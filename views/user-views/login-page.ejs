@@ -1,0 +1,42 @@
+<h2> Log In </h2>
+
+<% if (currentUser) { %>
+
+    <a href="/settings"> Edit Profile </a>
+    <a href="/logout"> Log Out </a>
+    <br />
+
+    <b> <%= currentUser.userName %> </b>
+  <% } else { %>
+
+    <a href="/"> Home </a>
+
+  <% } %>
+
+<% if (typeof errorMessage !== "undefined") { %>
+  <p class="error-message"> <%= errorMessage %> </p>
+<% } %>
+
+<form id="form" method="post" action="/process-login">
+  <label for="email-input"> Email </label>
+  <input id="email-input" type="email" placeholder="e.g. tyrion@casterly.rock" name="LoginEmail" />
+  <br />
+
+  <label for="password-input"> Password </label>
+  <input id="passwrod-input" type="password" name="LoginPassword" />
+  <br />
+  <br />
+
+  <button> Log In </button>
+  <br />
+  <br />
+
+  <a href="/facebook/login"> Log In With Facebook </a>
+  <a href="/google/login"> Log In With Google </a>
+  <br />
+  <br />
+  <p>
+    Don't have an account?
+    <a href="/signup"> Sign Up </a>
+  </p>
+</form>

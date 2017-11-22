@@ -1,0 +1,25 @@
+<h2> <%= currentUser.userName %> Profile </h2>
+
+
+<img id="profile-image" src="<%= currentUser.userAvatar %>" /> <br /><br />
+
+<p>
+  Email:  <b> <%= currentUser.email %> <br />
+    <small> (For "security reasons" we don't allow changing emails.)</small>
+</p>
+
+<h4> Name: <%= currentUser.fullName %> </h3>
+
+<h5> Favorite Languages </h5>
+<ul>
+  <% currentUser.userFavLanguages.forEach((oneLanguage) => { %>
+    <li>
+    <%= oneLanguage %>
+    </li>
+    <% }) %>
+  </ul>
+
+<h5> Bio </h5>
+<p>
+  <%= currentUser.userBio %>
+</p>

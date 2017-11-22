@@ -5,16 +5,23 @@ const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
-
+const session      = require("express-session");
+const passport     = require("passport");
 
 const app = express();
+
+// run the code that sets up the Mongoose database connection
+require("./config/mongoose-setup");
+// run the code that sets up Passport
+require("./config/passport-setup");
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'The Language Shop';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,9 +31,42 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: "this string is to avoid errors"
+  })
+);
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+  // Passport defines "req.user" if the user is logged in
+  // ("req.user" is the result of deserialize)
+    res.locals.currentUser = req.user;
+
+    // call "next()" to tell Express that we've finished
+    // (otherwise your browser will hang)
+    next();
+});
+
+// ROUTES  -------------------------------------
 const index = require('./routes/index');
 app.use('/', index);
+
+const myUserRouter = require("./routes/user-router");
+app.use(myUserRouter);
+
+const myCodeRouter = require("./routes/code-router");
+app.use(myCodeRouter);
+
+const myLanguageRouter = require("./routes/language-router");
+app.use(myLanguageRouter);
+
+// ----------------------------------------------
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
