@@ -16,7 +16,7 @@ router.get("/signup", (req, res, next) => {
     //(prevents the rest of the code form running
     return;
   }
-  res.locals.bodyClass = 'signUp';
+  res.locals.bodyClass = "generalBackground";
   res.render("user-views/signup-page");
 });
 
@@ -82,7 +82,7 @@ router.get("/login", (req, res, next) => {
   //(prevents the rest of the code form running)
       return;
     }
-  res.locals.bodyClass = 'logIn';
+  res.locals.bodyClass = "generalBackground";
   res.render("user-views/login-page");
 });
 
@@ -94,7 +94,6 @@ router.post("/process-login", (req,res, next) => {
     if (userFromDb === null) {
       // if we didn't find a user
       res.locals.errorMessage = "Email incorrect.";
-      res.locals.bodyClass = 'logIn';
       res.render("user-views/login-page");
 
       // early return to stop the function since there's an error
@@ -190,19 +189,25 @@ router.get("/profile/:userId", (req, res, next) => {
     res.redirect("/login");
     return;
   }
+    res.locals.bodyClass = "generalBackground";
     res.render("user-views/user-profile");
 });
 
 
 // STEP #1: show edit form
 router.get("/user/:userId/edit", (req, res, next) => {
+  // redirect to log in if there is no logged in user
+  if (req.user === undefined) {
+    res.redirect("/login");
+    return;
+  }
     // retrieve the document from the database
     UserModel.findById(req.params.userId)
       .then((userFromDb) => {
           // create a local variable for the view to access the DB result
           // (this is so we can pre-fill the form)
           res.locals.userDetails = userFromDb;
-
+          res.locals.bodyClass = "generalBackground";
           res.render("user-views/profile-edit-page");
       })
       .catch((err) => {
@@ -212,8 +217,14 @@ router.get("/user/:userId/edit", (req, res, next) => {
 });
 
 router.get("/user/:userId", (req, res, next) => {
+  // redirect to log in if there is no logged in user
+  if (req.user === undefined) {
+    res.redirect("/login");
+    return;
+  }
   res.render("user-views/user-profile");
 });
+
 
 // STEP #2: receive edit submission
 router.post("/user/:userId", (req, res, next) => {

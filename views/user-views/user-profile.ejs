@@ -1,3 +1,4 @@
+<a href="/user/<%= currentUser._id %>/edit"> Edit Profile </a>
 <h2> <%= currentUser.userName %> Profile </h2>
 
 
@@ -10,14 +11,14 @@
 
 <h4> Name: <%= currentUser.fullName %> </h3>
 
-<h5> Favorite Languages </h5>
+<h5> Favorite Coding Styles </h5>
 <ul>
   <% currentUser.userFavLanguages.forEach((oneLanguage) => { %>
     <li>
-    <%= oneLanguage %>
+      <%= oneLanguage %>
     </li>
-    <% }) %>
-  </ul>
+  <% }) %>
+</ul>
 
 <h5> Bio </h5>
 <p>

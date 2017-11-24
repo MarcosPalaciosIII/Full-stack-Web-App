@@ -1,5 +1,18 @@
 <h2> Code Input </h2>
 
+<% if (currentUser) { %>
+
+    <a href="/user/<%=currentUser._id%>/edit"> Edit Profile </a>
+    <a href="/logout"> Log Out </a>
+    <br />
+
+    <b> <%= currentUser.userName %> </b>
+  <% } else { %>
+
+    <a href="/"> Home </a>
+
+  <% } %>
+
 <form id="form" action="/code-input" method="post">
 
   <label for="codeName-input">  </label>
@@ -15,7 +28,7 @@
   <br />
 
   <label for="codeDescription-input">  </label>
-  <textarea id="codeDescription-input" type="text" name="codeDescriptionInput" rows="3" cols="51" placeholder="Description of your code"></textarea>
+  <textarea id="codeDescription-input" type="text" name="codeDescriptionInput" rows="3" cols="40" placeholder="Description of your code"></textarea>
   <br />
 
   <label for="codeLink-input">  </label>

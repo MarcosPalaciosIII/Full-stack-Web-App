@@ -4,42 +4,56 @@
 
     <meta charset="utf-8">
 
-    <title><%= title %></title>
+    <link rel="shortcut icon" href="/images/pageLogo.png" />
 
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %></title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+   <link rel="stylesheet" href="/stylesheets/style.css">
+
   </head>
-  <body>
+  <body class="<%= bodyClass %>">
     <header>
       <h1> <%= title %> </h1>
-
       <% if (currentUser) { %>
-        <h2> Hello, <%= currentUser.fullName %>! </h2>
-
-        <a href="/code/new"> Add a code </a>
-        <a href="/my-codes"> Code List </a>
-        <a href="/profile/<%= currentUser._id %>"> My Profile </a>
-
-
-        <div class="dropdown">
-          <button onclick="myFunction()" class="dropbtn"> Discussions </button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="/Angular"> Angular </a>
-            <a href="/CSS"> CSS </a>
-            <a href="/Express"> Express </a>
-            <a href="/Javascript"> Javascript </a>
-            <a href="/Mongo"> Mongo </a>
-            <a href="/Node"> Node </a>
-            <a href="/Ruby"> Ruby </a>
-          </div>
+      <div class="nav-bar" >
+        <div>
+          <img id="nav-image" src="<%= currentUser.userAvatar %>" />
+          <h2> Hello, <%= currentUser.fullName %>! </h2>
+          <br />
         </div>
+
+
+
+        <div>
+          <a href="/"> Home </a>
+          <a href="/my-codes"> Code List </a>
+          <a href="/profile/<%= currentUser._id %>"> My Profile </a>
+
+
+          <div class="dropdown">
+            <a onclick="myFunction()" class="dropbtn"> Discussions <span class="glyphicon glyphicon-chevron-down"></span> </a>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="/Angular"> Angular </a>
+              <a href="/CSS"> CSS </a>
+              <a href="/Express"> Express </a>
+              <a href="/Javascript"> Javascript </a>
+              <a href="/Mongo"> Mongo </a>
+              <a href="/Node"> Node </a>
+              <a href="/Ruby"> Ruby </a>
+            </div>
+          </div>
+
+          <a href="/logout"> Log Out </a>
+          <br />
+        </div>
+
+      </div>
       <% } %>
 
-      <a href="/"> Home </a>
     </header>
 
     <%- body %>
