@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 // default value for title local
 app.locals.title = 'The Coding Shop';
 
-app.locals.bodyClass = "homepage";
+app.locals.bodyClass = "generalBackground";
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

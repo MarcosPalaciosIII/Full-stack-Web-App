@@ -16,7 +16,7 @@ router.get("/signup", (req, res, next) => {
     //(prevents the rest of the code form running
     return;
   }
-  res.locals.bodyClass = "generalBackground";
+  
   res.render("user-views/signup-page");
 });
 
@@ -82,7 +82,7 @@ router.get("/login", (req, res, next) => {
   //(prevents the rest of the code form running)
       return;
     }
-  res.locals.bodyClass = "generalBackground";
+  
   res.render("user-views/login-page");
 });
 
@@ -189,7 +189,7 @@ router.get("/profile/:userId", (req, res, next) => {
     res.redirect("/login");
     return;
   }
-    res.locals.bodyClass = "generalBackground";
+    
     res.render("user-views/user-profile");
 });
 
@@ -207,7 +207,7 @@ router.get("/user/:userId/edit", (req, res, next) => {
           // create a local variable for the view to access the DB result
           // (this is so we can pre-fill the form)
           res.locals.userDetails = userFromDb;
-          res.locals.bodyClass = "generalBackground";
+          
           res.render("user-views/profile-edit-page");
       })
       .catch((err) => {

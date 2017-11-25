@@ -1,7 +1,7 @@
 body {
   padding: 10px 30px 0 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #630;
+  color: #720;
 }
 
 a {
@@ -21,8 +21,16 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  margin: 0 auto;
+}
+
 h5 {
   text-decoration: underline;
+}
+
+p {
+  color: black;
 }
 
 #form {
@@ -68,9 +76,15 @@ h5 {
   transition: .3s ease background;
 }
 
-editForm, button, input, textarea {
-  background-color: midnightblue;
+#editform button:hover {
+  background: #fff;
+  color: #43a3e6;
+  transition: .3s ease background;
 }
+
+/*editForm, button, input, textarea {
+  background-color: midnightblue;
+}*/
 
 .error-message {
   background: #F02B63;
@@ -162,10 +176,22 @@ editForm, button, input, textarea {
 }
 
 #disqus_thread {
-  background-color: white;
+  background-color: gainsboro;
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-between;
+  height: 115px;
+}
+
+.logos {
+  height: 150px;
+  width: 150px;
+}
+
+.thread-header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }

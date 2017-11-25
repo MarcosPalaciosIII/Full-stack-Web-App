@@ -10,7 +10,7 @@ router.get("/code/new", (req, res, next) => {
     res.redirect("/login");
     return;
   }
-  res.locals.bodyClass = "generalBackground";
+  
   res.render("./code-views/code-input-page");
 });
 
@@ -53,7 +53,7 @@ router.get("/my-codes", (req, res, next) => {
   .exec()
   .then((codeResults) => {
       res.locals.listOfCodes = codeResults;
-      res.locals.bodyClass = "generalBackground";
+      
       res.render("./code-views/code-list");
   })
   .catch((err) => {
