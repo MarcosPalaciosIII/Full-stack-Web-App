@@ -49,7 +49,9 @@ passport.use(
 
 
       // URL: where to go after log in is successful (one of our routes)
-      callbackURL: "/facebook/success"
+      callbackURL: "/facebook/success",
+
+      proxy: true
     },
 
     // 2nd arg of fbStrategy -> callback
