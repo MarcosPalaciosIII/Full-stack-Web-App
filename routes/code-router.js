@@ -69,17 +69,13 @@ router.get("/code/:codeId", (req, res, next) => {
   //   res.redirect("/login");
   //   return;
   // }
-  console.log("---- start redirect to code detail ----");
 
   CodeModel.findById(req.params.codeId)
 
   .then((codeFromDb) => {
-    console.log(codeFromDb);
 
     res.locals.codeDetails = codeFromDb;
-    
 
-    console.log("---redirected to code detail----");
     res.render("code-views/code-details-page");
   })
   .catch((err) => {

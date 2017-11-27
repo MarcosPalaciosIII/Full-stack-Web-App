@@ -56,6 +56,10 @@
 
     </header>
 
+    <% if (typeof errorMessage !== "undefined") { %>
+      <p class="error-message"> <%= req.flash("message") %> </p>
+    <% } %>
+
     <%- body %>
 
     <script

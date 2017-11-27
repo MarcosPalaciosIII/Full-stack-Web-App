@@ -29,6 +29,11 @@ h5 {
   text-decoration: underline;
 }
 
+h6 {
+  font-size: 40px;
+  text-align: center;
+}
+
 p {
   color: black;
 }
@@ -194,4 +199,23 @@ p {
   display:flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.edit-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.noStyle-list {
+  list-style-type: none;
 }

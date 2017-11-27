@@ -2,25 +2,29 @@
 <h2> <%= currentUser.userName %> Profile </h2>
 
 
-<img id="profile-image" src="<%= currentUser.userAvatar %>" /> <br /><br />
+<div class="profile-page">
 
-<p>
-  Email:  <b> <%= currentUser.email %> <br />
-    <small> (For "security reasons" we don't allow changing emails.)</small>
-</p>
+  <img id="profile-image" src="<%= currentUser.userAvatar %>" /> <br /><br />
 
-<h4> Name: <%= currentUser.fullName %> </h3>
+  <p>
+    Email:  <b> <%= currentUser.email %> <br />
+      <small> (For "security reasons" we don't allow changing emails.)</small>
+  </p>
 
-<h5> Favorite Coding Styles </h5>
-<ul>
-  <% currentUser.userFavLanguages.forEach((oneLanguage) => { %>
-    <li>
-      <%= oneLanguage %>
-    </li>
-  <% }) %>
-</ul>
+  <h4> Name: <%= currentUser.fullName %> </h3>
 
-<h5> Bio </h5>
-<p>
-  <%= currentUser.userBio %>
-</p>
+  <h5> Favorite Coding Styles </h5>
+  <ul class="noStyle-list">
+    <% currentUser.userFavLanguages.forEach((oneLanguage) => { %>
+      <li>
+        <%= oneLanguage %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <h5> Bio </h5>
+  <p>
+    <%= currentUser.userBio %>
+  </p>
+
+</div>

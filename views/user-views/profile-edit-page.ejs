@@ -1,5 +1,6 @@
 <h2> <%= currentUser.userName %> Profile Edit </h2>
 
+<div class="edit-page">
 
 <p>
   Email:  <b> <%= currentUser.email %> <br />
@@ -28,7 +29,7 @@
     <br />
 
     <h5> Current Favorite Coding Styles </h5>
-    <ul>
+    <ul class="noStyle-list">
       <% userDetails.userFavLanguages.forEach((oneLanguage) => { %>
         <li>
         <%= oneLanguage %>
@@ -59,3 +60,5 @@
 
     <button> Save Changes </button>
 </form>
+
+</div>
