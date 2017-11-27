@@ -10,6 +10,11 @@ const passport     = require("passport");
 
 const app = express();
 
+
+// Load environment variables from the ".env" files
+// (put this before the setupr files since this defines env variables)
+require("dotenv").config();
+
 // run the code that sets up the Mongoose database connection
 require("./config/mongoose-setup");
 // run the code that sets up Passport

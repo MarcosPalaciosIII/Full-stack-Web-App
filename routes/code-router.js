@@ -10,8 +10,8 @@ router.get("/code/new", (req, res, next) => {
     res.redirect("/login");
     return;
   }
-  
-  res.render("./code-views/code-input-page");
+
+  res.render("code-views/code-input-page");
 });
 
 
@@ -53,13 +53,39 @@ router.get("/my-codes", (req, res, next) => {
   .exec()
   .then((codeResults) => {
       res.locals.listOfCodes = codeResults;
-      
-      res.render("./code-views/code-list");
+
+      res.render("code-views/code-list");
   })
   .catch((err) => {
 
   });
 
 });
+
+
+router.get("/code/:codeId", (req, res, next) => {
+  // redirect to log in if there is no logged in user
+  // if (req.user === undefined) {
+  //   res.redirect("/login");
+  //   return;
+  // }
+  console.log("---- start redirect to code detail ----");
+
+  CodeModel.findById(req.params.codeId)
+
+  .then((codeFromDb) => {
+    console.log(codeFromDb);
+
+    res.locals.codeDetails = codeFromDb;
+    
+
+    console.log("---redirected to code detail----");
+    res.render("code-views/code-details-page");
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
 
 module.exports = router;

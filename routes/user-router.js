@@ -16,7 +16,7 @@ router.get("/signup", (req, res, next) => {
     //(prevents the rest of the code form running
     return;
   }
-  
+
   res.render("user-views/signup-page");
 });
 
@@ -25,7 +25,7 @@ router.post("/process-signup", (req, res, next) => {
   if(req.body.signupPassword.length < 9 ||
      req.body.signupPassword.match(/[^a-z0-9]/i) === null             //                |
    ) { //               if no special characters
-     res.locals.errorMessage = "Password is invalid";
+     res.locals.errorMessage = "Password must contain atleast 10 characters long with a special character";
      res.render("user-views/signup-page");
 
      // early return to stop the function since there's an error
@@ -82,7 +82,7 @@ router.get("/login", (req, res, next) => {
   //(prevents the rest of the code form running)
       return;
     }
-  
+
   res.render("user-views/login-page");
 });
 
@@ -189,7 +189,7 @@ router.get("/profile/:userId", (req, res, next) => {
     res.redirect("/login");
     return;
   }
-    
+
     res.render("user-views/user-profile");
 });
 
@@ -207,7 +207,7 @@ router.get("/user/:userId/edit", (req, res, next) => {
           // create a local variable for the view to access the DB result
           // (this is so we can pre-fill the form)
           res.locals.userDetails = userFromDb;
-          
+
           res.render("user-views/profile-edit-page");
       })
       .catch((err) => {
