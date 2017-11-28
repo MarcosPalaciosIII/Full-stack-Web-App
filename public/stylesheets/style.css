@@ -235,3 +235,7 @@ p {
   background-size: cover;
   height: 100%;
 }
+
+input {
+  color: black;
+}
