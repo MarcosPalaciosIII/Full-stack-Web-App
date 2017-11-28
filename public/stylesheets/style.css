@@ -2,6 +2,7 @@ body {
   padding: 10px 30px 0 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #720;
+  width: 100%
 }
 
 a {
@@ -87,10 +88,6 @@ p {
   transition: .3s ease background;
 }
 
-/*editForm, button, input, textarea {
-  background-color: midnightblue;
-}*/
-
 .error-message {
   background: #F02B63;
   box-sizing: border-box;
@@ -120,20 +117,11 @@ p {
 
 /* Dropdown Button */
 .dropbtn {
-    /*background-color: #4CAF50;*/
-    /*color: white;*/
     padding: 16px;
-    /*font-size: 16px;*/
     border: none;
     cursor: pointer;
 }
 
-/* Dropdown button on hover & focus */
-/*.dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-}*/
-
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -170,9 +158,9 @@ p {
   background-size: cover;
 }
 
-.cssChat {
+/*.cssChat {
   background-image: url("../images/CSS-background.jpg");
-}
+}*/
 
 .generalBackground {
   background-image: url("../images/backgroundColorGeneral.jpeg");
@@ -182,6 +170,7 @@ p {
 
 #disqus_thread {
   background-color: gainsboro;
+  width: 75%;
 }
 
 .nav-bar {
@@ -218,4 +207,13 @@ p {
 
 .noStyle-list {
   list-style-type: none;
+}
+
+.comments-and-users {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-list {
+  width: 15%;
 }
