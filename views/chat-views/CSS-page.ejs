@@ -33,13 +33,17 @@
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
   <div class="user-list">
-    <ul>
+    <ul class="noStyle-list">
       Who's online? <hr />
+
+      <% listOfUsers.forEach((oneUser) => { %>
+
       <li>
-        <%= currentUser.userName %>
+        <%= oneUser.userName %>
 
       </li>
 
+    <% }) %>
     </ul>
   </div>
 

@@ -25,7 +25,7 @@ router.post("/process-signup", (req, res, next) => {
   if(req.body.signupPassword.length < 9 ||
      req.body.signupPassword.match(/[^a-z0-9]/i) === null             //                |
    ) { //               if no special characters
-     res.locals.errorMessage = "Password must contain atleast 10 characters long with a special character";
+     res.locals.errorMessage = "Password must contain atleast 10 characters with a special character";
      res.render("user-views/signup-page");
 
      // early return to stop the function since there's an error
@@ -53,7 +53,8 @@ router.post("/process-signup", (req, res, next) => {
        userName: req.body.signupUsername,
        userAvatar: req.body.signupAvatar,
        userFavLanguages: req.body.signupFavLanguages,
-       encryptedPassword: scrambledPassword
+       encryptedPassword: scrambledPassword,
+       loggedIn: false
 
      });
 
@@ -124,8 +125,20 @@ router.post("/process-login", (req,res, next) => {
           next(err);
         }
         else {
-          //redirect to the home page on successful log in
-          res.redirect("/");
+
+              console.log("user" + userFromDb);
+              userFromDb.set({loggedIn: true});
+              userFromDb.save()
+
+              .then(() => {
+
+                //redirect to the home page on successful log in
+                res.redirect("/");
+              })
+              .catch((err) => {
+                next(err);
+              });
+
         }
       }); //req.login()
   })// then()
@@ -136,11 +149,21 @@ router.post("/process-login", (req,res, next) => {
 
 
 router.get("/logout", (req, res, next) => {
-  //Passport defines the "req.logout()" method
-  // for us to specify when to log out a user (clear them from the session)
-  req.logout();
 
-  res.redirect("/");
+  req.user.set({loggedIn: false});
+  req.user.save()
+
+  .then(() => {
+    //Passport defines the "req.logout()" method
+    // for us to specify when to log out a user (clear them from the session)
+    req.logout();
+
+
+    res.redirect("/");
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
 

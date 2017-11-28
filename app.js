@@ -8,6 +8,7 @@ const layouts      = require('express-ejs-layouts');
 const session      = require("express-session");
 const passport     = require("passport");
 
+
 const app = express();
 
 
@@ -58,6 +59,11 @@ app.use((req, res, next) => {
     // (otherwise your browser will hang)
     next();
 });
+
+// app.use((req, res, next) => {
+//   res.locals.users = req.user.id;
+//   next();
+// });
 
 // ROUTES  -------------------------------------
 const index = require('./routes/index');

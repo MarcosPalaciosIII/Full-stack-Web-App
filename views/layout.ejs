@@ -39,7 +39,7 @@
             <div id="myDropdown" class="dropdown-content">
               <a href="/Angular"> Angular </a>
               <a href="/CSS"> CSS </a>
-              <a href="/Express"> Express </a>
+              <a href="/Python"> Python </a>
               <a href="/Javascript"> Javascript </a>
               <a href="/Mongo"> Mongo </a>
               <a href="/Node"> Node </a>
@@ -55,10 +55,6 @@
       <% } %>
 
     </header>
-
-    <% if (typeof errorMessage !== "undefined") { %>
-      <p class="error-message"> <%= req.flash("message") %> </p>
-    <% } %>
 
     <%- body %>
 

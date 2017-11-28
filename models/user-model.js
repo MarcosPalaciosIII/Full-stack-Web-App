@@ -30,6 +30,9 @@ const userSchema = new Schema(
     userFavLanguages: {
       type: Array,
     },
+    loggedIn: {
+      type: Boolean,
+    },
 
     //facebook users
     facebookID: { type: String },
