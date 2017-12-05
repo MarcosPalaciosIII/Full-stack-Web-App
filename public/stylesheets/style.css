@@ -23,9 +23,9 @@ img {
 }
 
 h1 {
-  font-size: 47px;
-  /*padding-left: 300px;*/
+  font-size: 50px;
   text-align: center;
+  font-family: Abril Fatface;
 }
 
 h2 {
@@ -164,9 +164,6 @@ p {
   background-size: cover;
 }
 
-/*.cssChat {
-  background-image: url("../images/CSS-background.jpg");
-}*/
 
 .generalBackground {
   background-image: url("../images/backgroundColorGeneral.jpeg");
