@@ -236,3 +236,13 @@ p {
 input {
   color: black;
 }
+
+.login-logo {
+  width: 4vw;
+  height: 7vh;
+}
+
+.login-logo-div {
+  display: flex;
+  justify-content: center;
+}
