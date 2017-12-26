@@ -17,10 +17,10 @@
   </head>
   <body class="<%= bodyClass %>">
     <header>
-      <h1> <%= title %> </h1>
+      <!-- <h1> <%= title %> </h1> -->
       <% if (currentUser) { %>
       <div class="nav-bar" >
-        <div>
+        <div class="current-user-info-nav">
           <img id="nav-image" src="<%= currentUser.userAvatar %>" />
           <h2> Hello, <%= currentUser.fullName %>! </h2>
           <br />
@@ -28,8 +28,8 @@
 
 
 
-        <div>
-          <a href="/"> Home </a>
+        <div class="nav-bar-links">
+          <a href="/"><span class="glyphicon glyphicon-home"></span> Home </a>
           <a href="/my-codes"> Code List </a>
           <a href="/profile/<%= currentUser._id %>"> My Profile </a>
 
@@ -48,13 +48,24 @@
           </div>
 
           <a href="/logout"> Log Out </a>
+          <% } else { %>
+
+            <div class="logged-out-nav">
+              <a href="/signup"> Sign Up </a>
+              <a href="/login"> Log In </a>
+            </div>
           <br />
         </div>
+
+
 
       </div>
       <% } %>
 
     </header>
+    <hr />
+
+    <h1> <%= title %> </h1>
 
     <%- body %>
 

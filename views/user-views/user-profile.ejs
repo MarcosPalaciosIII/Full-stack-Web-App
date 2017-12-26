@@ -1,30 +1,34 @@
-<a href="/user/<%= currentUser._id %>/edit"> Edit Profile </a>
-<h2> <%= currentUser.userName %> Profile </h2>
+<div class="views-body">
+
+  <a href="/user/<%= currentUser._id %>/edit"> Edit Profile </a>
+  <h2> <%= currentUser.userName %> Profile </h2>
 
 
-<div class="profile-page">
+  <div class="profile-page">
 
-  <img id="profile-image" src="<%= currentUser.userAvatar %>" /> <br /><br />
+    <img id="profile-image" src="<%= currentUser.userAvatar %>" /> <br /><br />
 
-  <p>
-    Email:  <b> <%= currentUser.email %> <br />
-      <small> (For "security reasons" we don't allow changing emails.)</small>
-  </p>
+    <p>
+      Email:  <b> <%= currentUser.email %> <br />
+        <small> (For "security reasons" we don't allow changing emails.)</small>
+      </p>
 
-  <h4> Name: <%= currentUser.fullName %> </h3>
+      <h4> Name: <%= currentUser.fullName %> </h3>
 
-  <h5> Favorite Coding Styles </h5>
-  <ul class="noStyle-list">
-    <% currentUser.userFavLanguages.forEach((oneLanguage) => { %>
-      <li>
-        <%= oneLanguage %>
-      </li>
-    <% }) %>
-  </ul>
+        <h5> Favorite Coding Styles </h5>
+        <ul class="noStyle-list">
+          <% currentUser.userFavLanguages.forEach((oneLanguage) => { %>
+            <li>
+              <%= oneLanguage %>
+            </li>
+            <% }) %>
+          </ul>
 
-  <h5> Bio </h5>
-  <p>
-    <%= currentUser.userBio %>
-  </p>
+          <h5> Bio </h5>
+          <p>
+            <%= currentUser.userBio %>
+          </p>
+
+        </div>
 
 </div>

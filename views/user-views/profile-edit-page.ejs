@@ -1,64 +1,68 @@
-<h2> <%= currentUser.userName %> Profile Edit </h2>
+<div class="views-body">
 
-<div class="edit-page">
+  <h2> <%= currentUser.userName %> Profile Edit </h2>
 
-<p>
-  Email:  <b> <%= currentUser.email %> <br />
-    <small> (For "security reasons" we don't allow changing emails.)</small>
-</p>
+  <div class="edit-page">
 
-<h4> Name: <%= currentUser.fullName %> </h3>
+    <p>
+      Email:  <b> <%= currentUser.email %> <br />
+        <small> (For "security reasons" we don't allow changing emails.)</small>
+      </p>
 
-
-  <form id="editFrom" method="post" action="/user/<%= userDetails._id %>">
-    <h3> Current Avatar </h3>
-    <img id="profile-image" src="<%= currentUser.userAvatar %>" />
-    <br />
-
-    <label for="user-avatar-input"> Avatar URL </label>
-    <input  id="user-avatar-input" type="text"
-    placeholder="e.g. http://example.com/nintendo.gif" name="userAvatarEdit"
-    value="<%= userDetails.userAvatar %>" />
-    <br />
+      <h4> Name: <%= currentUser.fullName %> </h3>
 
 
-    <label for="user-bio-input"> Bio </label>
-    <textarea  id="user-bio-input" type="text"
-        placeholder="I love coding" name="userBioEdit"
-        value="<%= userDetails.userBio %>"><%= userDetails.userBio %></textarea>
-    <br />
+        <form id="editFrom" method="post" action="/user/<%= userDetails._id %>">
+          <h3> Current Avatar </h3>
+          <img id="profile-image" src="<%= currentUser.userAvatar %>" />
+          <br />
 
-    <h5> Current Favorite Coding Styles </h5>
-    <ul class="noStyle-list">
-      <% userDetails.userFavLanguages.forEach((oneLanguage) => { %>
-        <li>
-        <%= oneLanguage %>
-        </li>
-        <% }) %>
-      </ul>
+          <label for="user-avatar-input"> Avatar URL </label>
+          <input  id="user-avatar-input" type="text"
+          placeholder="e.g. http://example.com/nintendo.gif" name="userAvatarEdit"
+          value="<%= userDetails.userAvatar %>" />
+          <br />
 
-      <p><em> -- you MUST select your 3 favorite code styles or field will be left blank -- </em></p>
 
-    <div id="fav-languages-input">
-      <p><strong>Which Code Styles are your favorite (Select 3)</strong></p>
+          <label for="user-bio-input"> Bio </label>
+          <textarea  id="user-bio-input" type="text"
+          placeholder="I love coding" name="userBioEdit"
+          value="<%= userDetails.userBio %>"><%= userDetails.userBio %></textarea>
+          <br />
 
-          <input id="CssCheckbox" class="single-checkbox"type="checkbox" name="editFavLanguages" value="CSS" />CSS<br>
+          <h5> Current Favorite Coding Styles </h5>
+          <ul class="noStyle-list">
+            <% userDetails.userFavLanguages.forEach((oneLanguage) => { %>
+              <li>
+                <%= oneLanguage %>
+              </li>
+              <% }) %>
+            </ul>
 
-          <input id="JavascriptCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Javascript"  />Javascript<br>
+            <p><em> -- you MUST select your 3 favorite code styles or field will be left blank -- </em></p>
 
-          <input id="RubyCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Ruby" />Ruby<br>
+            <div id="fav-languages-input">
+              <p><strong>Which Code Styles are your favorite (Select 3)</strong></p>
 
-          <input id="PythonCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Python" />Python<br>
+              <input id="CssCheckbox" class="single-checkbox"type="checkbox" name="editFavLanguages" value="CSS" />CSS<br>
 
-          <input id="NodeCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Node" />Node<br>
+              <input id="JavascriptCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Javascript"  />Javascript<br>
 
-          <input id="MongoCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Mongo" />Mongo<br>
+              <input id="RubyCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Ruby" />Ruby<br>
 
-          <input id="AngularCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Angular" />Angular<br>
+              <input id="PythonCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Python" />Python<br>
 
-    </div>
+              <input id="NodeCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Node" />Node<br>
 
-    <button> Save Changes </button>
-</form>
+              <input id="MongoCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Mongo" />Mongo<br>
+
+              <input id="AngularCheckbox" class="single-checkbox" type="checkbox" name="editFavLanguages" value="Angular" />Angular<br>
+
+            </div>
+
+            <button class="edit-button"> Save Changes </button>
+          </form>
+
+        </div>
 
 </div>

@@ -1,33 +1,35 @@
-<div class ="thread-header">
-  <div>
-    <h2> Ruby Discussion Thread </h2>
+<div class="views-body">
+
+  <div class ="thread-header">
+    <div>
+      <h2> Ruby Discussion Thread </h2>
+    </div>
+    <div>
+      <img class=logos src="../images/rubyLogo.png" />
+    </div>
   </div>
-  <div>
-    <img class=logos src="../images/rubyLogo.png" />
-  </div>
-</div>
-<br />
+  <br />
 
 
-<div class="comments-and-users">
+  <div class="comments-and-users">
 
-  <div id="disqus_thread"></div>
-  <script>
+    <div id="disqus_thread"></div>
+    <script>
 
-  /**
-  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-  var disqus_config = function () {
-  // this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-  this.page.identifier = "Ruby"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
+    var disqus_config = function () {
+      // this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "Ruby"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
 
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = 'https://the-language-shop.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://the-language-shop.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
   })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -38,13 +40,15 @@
 
       <% listOfUsers.forEach((oneUser) => { %>
 
-      <li>
-        <%= oneUser.userName %>
+        <li>
+          <%= oneUser.userName %>
 
-      </li>
+        </li>
 
-    <% }) %>
-    </ul>
+        <% }) %>
+      </ul>
+    </div>
+
   </div>
 
 </div>

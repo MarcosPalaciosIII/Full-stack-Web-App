@@ -1,14 +1,18 @@
-<h2> Code List </h2>
+<div class="views-body">
 
-<a href="/code/new"> Add a code </a>
+  <h2> Code List </h2>
 
-<ul>
-  <% listOfCodes.forEach((oneCode) => { %>
-    <li>
-      <h3> Code Name: <%= oneCode.codeName %> </h3>
+  <a href="/code/new"> Add a code </a>
 
-      <a href="/code/<%= oneCode._id %>"> Code Details </a>
-      <br
-    </li>
-  <% }) %>
-</ul>
+  <ul>
+    <% listOfCodes.forEach((oneCode) => { %>
+      <li>
+        <h3> Code Name: <%= oneCode.codeName %> </h3>
+
+        <a href="/code/<%= oneCode._id %>"> Code Details </a>
+        <br
+      </li>
+      <% }) %>
+    </ul>
+
+</div>
